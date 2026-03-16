@@ -1,4 +1,12 @@
-/* --- Reset & Global --- */
+/* --- Global & Color Palette --- */
+:root {
+    --primary-blue: #004C6D;
+    --accent-blue: #0081b9;
+    --light-blue-bg: #d8e7ff;
+    --light-gray: #B3B9BC;
+    --secondary-blue: #65b6d1;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,35 +14,14 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body {
-    background-color: #d8e7ff;
-    color: #333;
-}
+body { background-color: var(--light-blue-bg); color: #333; }
 
-/* --- Header --- */
-.navbar {
-    background-color: #004C6D;
-    padding: 1rem 5%;
-    color: white;
-}
-
-.header-container {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.logo {
-    width: 40px;
-    height: auto;
-}
-
-/* --- Main Layout (Mobile First) --- */
+/* --- Main Layout --- */
 .main-wrapper {
     display: flex;
     justify-content: center;
     padding: 2rem 1rem;
-    min-height: calc(100vh - 80px);
+    min-height: 100vh;
 }
 
 .login-card {
@@ -43,52 +30,48 @@ body {
     max-width: 400px;
     padding: 2.5rem;
     border-radius: 8px;
-    border-top: 6px solid #0081b9;
+    border-top: 6px solid var(--accent-blue);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* --- Form Elements --- */
-h2 { color: #004C6D; margin-bottom: 0.5rem; }
-.login-card > p { color: #B3B9BC; margin-bottom: 2rem; }
+/* --- Integrated Logo Area --- */
+.card-brand-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
 
+.logo { width: 60px; height: auto; margin-bottom: 0.5rem; }
+.brand-name { color: var(--primary-blue); font-size: 1.5rem; }
+
+/* --- Form Elements --- */
+h2 { color: var(--primary-blue); margin-bottom: 0.5rem; }
+.login-card > p { color: var(--light-gray); margin-bottom: 2rem; }
 .input-group { margin-bottom: 1.5rem; }
 label { display: block; font-weight: 600; margin-bottom: 0.5rem; }
-
-input {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #B3B9BC;
-    border-radius: 4px;
-}
+input { width: 100%; padding: 12px; border: 1px solid var(--light-gray); border-radius: 4px; }
 
 .btn-login {
     width: 100%;
     padding: 12px;
-    background-color: #0081b9;
+    background-color: var(--accent-blue);
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-weight: bold;
-    transition: background 0.3s;
 }
-
-.btn-login:hover { background-color: #65b6d1; }
+.btn-login:hover { background-color: var(--secondary-blue); }
 
 .card-footer { margin-top: 1.5rem; text-align: center; font-size: 0.9rem; }
-.card-footer a { color: #0081b9; text-decoration: none; }
+.card-footer a { color: var(--accent-blue); text-decoration: none; }
 
 /* --- Laptop View Breakpoint --- */
-
-
 @media (min-width: 1024px) {
     .main-wrapper {
         align-items: center;
-        background: linear-gradient(135deg, #004C6D 0%, #d8e7ff 100%);
+        background: linear-gradient(135deg, var(--primary-blue) 0%, var(--light-blue-bg) 100%);
         background-attachment: fixed;
-    }
-    .login-card {
-        max-width: 450px;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
     }
 }
